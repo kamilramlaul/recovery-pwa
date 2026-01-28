@@ -71,7 +71,21 @@
     .row label {
       font-weight: 500;
     }
-  </style>
+  /* Checkbox alignment fix */
+.checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 6px 0;
+  font-weight: 500;
+}
+
+.checkbox-item input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+</style>
 </head>
 
 <body>
@@ -144,3 +158,4 @@
 
 </body>
 </html>
+
