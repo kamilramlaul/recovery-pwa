@@ -1,4 +1,4 @@
-const CACHE_NAME = "recovery-assistant-v";
+const CACHE_NAME = "recovery-assistant-v8";
 
 const ASSETS_TO_CACHE = [
   "./",
@@ -32,5 +32,6 @@ self.addEventListener("fetch", (event) => {
     caches.match(event.request).then((cached) => cached || fetch(event.request))
   );
 });
+
 
 
