@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Recovery Gear Assistant</title>
+
+  <!-- PWA -->
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <meta name="theme-color" content="#111827" />
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 900px;
+      margin: 24px auto;
+      padding: 0 16px;
+      background: #f8f9fa;
+    }
+    h1 {
+      text-align: center;
+    }
+    .card {
+      background: #ffffff;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      padding: 16px;
+      margin: 12px 0;
+    }
+    label {
+      display: block;
+      margin: 10px 0 6px;
+      font-weight: 600;
+    }
+    select, input {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    button {
+      width: 100%;
+      padding: 14px;
+      border-radius: 10px;
+      border: none;
+      background: #111827;
+      color: #ffffff;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #1f2937;
+    }
+    ul {
+      margin-left: 18px;
+    }
+    .warn {
+      background: #fff3cd;
+      border: 1px solid #ffeeba;
+    }
+    .stop {
+      background: #fde2e2;
+      border: 1px solid #f5a5a5;
+    }
+    .row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .row label {
+      font-weight: 500;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Recovery Gear Assistant</h1>
+
+  <div class="card">
+    <label>Terrain</label>
+    <select id="terrain">
+      <option value="sand">Sand</option>
+      <option value="mud">Mud</option>
+      <option value="rock">Rock</option>
+      <option value="gravel">Gravel</option>
+      <option value="mixed">Mixed</option>
+      <option value="snow">Snow</option>
+    </select>
+
+    <label>Stuck Type</label>
+    <select id="stuckType">
+      <option value="spinning">Wheels spinning</option>
+      <option value="bogged">Bogged down</option>
+      <option value="high_centered">High-centred / bellied out</option>
+      <option value="wheel_lifted">Wheel lifted / cross-axle</option>
+      <option value="steep_incline">Steep incline</option>
+      <option value="steep_decline">Steep decline</option>
+      <option value="side_slope">Side slope</option>
+    </select>
+
+    <label>Assistance</label>
+    <select id="assistance">
+      <option value="solo">Solo</option>
+      <option value="assisted">Another vehicle available</option>
+    </select>
+
+    <label>Winch fitted?</label>
+    <select id="winchFitted">
+      <option value="false">No</option>
+      <option value="true">Yes</option>
+    </select>
+
+    <label>Vehicle weight (kg) – optional</label>
+    <input id="weight" type="number" placeholder="e.g. 1200 for Jimny" />
+
+    <div class="row" style="margin-top:12px;">
+      <label><input type="checkbox" id="ratedFront"> Rated front recovery point</label>
+      <label><input type="checkbox" id="ratedRear"> Rated rear recovery point</label>
+      <label><input type="checkbox" id="towBall"> Tow ball only</label>
+    </div>
+
+    <label>Recovery gear available</label>
+    <div id="gearList"></div>
+
+    <div style="margin-top:16px;">
+      <button id="runBtn">Get Recovery Advice</button>
+    </div>
+  </div>
+
+  <div id="output"></div>
+
+  <!-- Scripts -->
+  <script src="./engine.js"></script>
+  <script src="./app.js"></script>
+
+  <!-- Service worker -->
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("./service-worker.js");
+    }
+  </script>
+
+</body>
+</html>
