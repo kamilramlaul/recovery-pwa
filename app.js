@@ -23,14 +23,18 @@ const GEAR_ITEMS = [
 function renderGearCheckboxes() {
   const el = document.getElementById("gearList");
   el.innerHTML = "";
+
   GEAR_ITEMS.forEach(([key, label]) => {
     const row = document.createElement("label");
-    row.style.display = "block";
-    row.style.margin = "6px 0";
-    row.innerHTML = `<input type="checkbox" value="${key}"> ${label}`;
+    row.className = "checkbox-item";
+    row.innerHTML = `
+      <input type="checkbox" value="${key}">
+      <span>${label}</span>
+    `;
     el.appendChild(row);
   });
 }
+
 
 function getSelectedGear() {
   return Array.from(
@@ -136,3 +140,4 @@ document.getElementById("runBtn").addEventListener("click", () => {
 });
 
 renderGearCheckboxes();
+
