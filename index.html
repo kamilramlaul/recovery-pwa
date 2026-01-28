@@ -10,14 +10,28 @@
   <link rel="manifest" href="./manifest.webmanifest" />
   <meta name="theme-color" content="#111827" />
 
-  <style>
+  <style>/* =========================
+   THEME COLOURS (OFF-ROAD ORANGE)
+   ========================= */
+:root{
+  --bg: #0b0f14;
+  --card: rgba(255,255,255,0.07);
+  --card2: rgba(255,255,255,0.10);
+  --text: #f2f6ff;
+  --muted: rgba(242,246,255,0.72);
+  --border: rgba(255,255,255,0.14);
+
+  /* Accent colours */
+  --accent: #ff8c00;
+  --accent2: #ffc04d;
+}
+
     body {
-      font-family: Arial, sans-serif;
-      max-width: 900px;
-      margin: 24px auto;
-      padding: 0 16px;
-      background: #f8f9fa;
-    }
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
     h1 {
       text-align: center;
     }
@@ -40,15 +54,17 @@
       border: 1px solid #ccc;
     }
     button {
-      width: 100%;
-      padding: 14px;
-      border-radius: 10px;
-      border: none;
-      background: #111827;
-      color: #ffffff;
-      font-size: 16px;
-      cursor: pointer;
-    }
+  width: 100%;
+  padding: 14px;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color: #111;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
     button:hover {
       background: #1f2937;
     }
@@ -183,5 +199,6 @@
       <div class="chip"><strong>Mode:</strong> Jimny-friendly</div>
     </div>
   </div>
+
 
 
